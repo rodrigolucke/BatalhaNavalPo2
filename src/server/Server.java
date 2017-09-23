@@ -124,9 +124,9 @@ public class Server {
         }
     }
     
-    
+    /*
     public static void main(String args[]) {
         new Server(); // metodo main chama o construtor da classe Server
     }
-           
+        */   
 }

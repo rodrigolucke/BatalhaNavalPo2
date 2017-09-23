@@ -75,19 +75,17 @@ public class Tabuleiro {
        
         MetodosAuxiliares m = new MetodosAuxiliares();
          int[] vetorPosicoesNavios = new int[5];
-         
-        /* for (int j = 0; j < 5; j++) {
-              int navio = m.gerarNumero(j, 15);
-           //  while (this.verificarNumeroDigitado(vetorPosicoesNavios, j ,navio)){
-                navio  = Integer.parseInt(JOptionPane.showInputDialog("Digite o endereço do navio"+j+":"));
-            // }
-            vetorPosicoesNavios[j] = navio;
-
-        }*/
+        for (int j = 0; j < 4; j++) {
+             String navio = "";       
+             while(navio.equals("-1") || navio.equals("")){
+                 navio  = JOptionPane.showInputDialog("Digite o endereço do n° "+ (j+1) + ":");
+             }
+            vetorPosicoesNavios[j] = Integer.parseInt(navio);
+        }
          for (int i = 0; i < 5; i++) {
-            int navio = m.gerarNumero(0, 15);
+            //int navio = m.gerarNumero(0, 15);
            for (PontoTabuleiro pontoTabuleiro : pontosTabuleiro) {
-                if(pontoTabuleiro.endereco == navio){
+                if(pontoTabuleiro.endereco == vetorPosicoesNavios[i]){
                     pontoTabuleiro.setTemNavio(true);
                 }
             }

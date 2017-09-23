@@ -1958,17 +1958,18 @@ public class BatalhaClienteTela extends javax.swing.JFrame implements ActionList
                              //enviaRetorno
                              this.enviaRetornoAcertoErro( localizacaoTiro,acertoErro );
                              this.setaOMeuTabuleiroComOTiroRecebido(localizacaoTiro,acertoErro);
+                            /* if(acertoErro.equals("c")){
+                                aThis.getPlayer().diminuiVida(); 
+                                aThis.getPlayer().getTabuleiroPlayer().getPontosTabuleiro().get(Integer.parseInt(localizacaoTiro)).setTemNavio(false);
+                                aThis.getPlayer().getTabuleiroPlayer().getPontosTabuleiro().get(Integer.parseInt(localizacaoTiro)).setPermiteJogada(false);
+                             }*/
                              aThis.desbloqueiaJogada();
                             
                         }else {//se for um retorno de acerto ou erro 
                               String retorno =s.substring(0,1);
                               String localizacaoTiro =s.substring(1);                                 
                              this.setaOTabuleiroDoOponenteComOtiroDado(localizacaoTiro,retorno);
-                             if(tiro.equals("c")){
-                                aThis.getPlayer().diminuiVida(); 
-                                aThis.getPlayer().getTabuleiroPlayer().getPontosTabuleiro().get(Integer.parseInt(localizacaoTiro)).setTemNavio(false);
-                                aThis.getPlayer().getTabuleiroPlayer().getPontosTabuleiro().get(Integer.parseInt(localizacaoTiro)).setPermiteJogada(false);
-                             }
+                             
                              aThis.bloqueiaJogada();
                         }
                     
@@ -1990,7 +1991,8 @@ public class BatalhaClienteTela extends javax.swing.JFrame implements ActionList
             for (PontoTabuleiro ponto :p.getPlayer().getTabuleiroPlayer().pontosTabuleiro) {
                 if(ponto.getEndereco() == Integer.parseInt(index)){
                     if(ponto.getTemNavio()){
-                        //ponto.setTemNavio(false);
+                        ponto.setTemNavio(false);
+                        aThis.getPlayer().diminuiVida();
                         return "c";
                     }   
                 }   
@@ -2015,7 +2017,7 @@ public class BatalhaClienteTela extends javax.swing.JFrame implements ActionList
               // String caminhoImagens ="C:/Users/rodrigolucke/Documents/NetBeansProjects/BatalhaNavalLuckeDani/src";
            //  Icon iconAcertou = new ImageIcon(aThis.caminhoImagens+"/images/acertou.gif");
            //  Icon iconErrou = new ImageIcon(aThis.caminhoImagens+"/images/errou.gif");
-            //aThis.getPlayer().getTabuleiroPlayer().getPontosTabuleiro().get(Integer.parseInt(s)).setTemNavio(false);
+            aThis.getPlayer().getTabuleiroPlayer().getPontosTabuleiro().get(Integer.parseInt(s)).setTemNavio(false);
           
             if(s.equals("0")){
                 if(v.equals("c")){ 
@@ -2151,7 +2153,7 @@ public class BatalhaClienteTela extends javax.swing.JFrame implements ActionList
               // String caminhoImagens ="C:/Users/rodrigolucke/Documents/NetBeansProjects/BatalhaNavalLuckeDani/src";
            /*  Icon iconAcertou = new ImageIcon(aThis.caminhoImagens+"/images/acertou.gif");
              Icon iconErrou = new ImageIcon(aThis.caminhoImagens+"/images/errou.gif");*/
-             aThis.getPlayer().getTabuleiroPlayer().getPontosTabuleiro().get(Integer.parseInt(s)).setTemNavio(false);
+            // aThis.getPlayer().getTabuleiroPlayer().getPontosTabuleiro().get(Integer.parseInt(s)).setTemNavio(false);
               // String caminhoImagens ="C:/Users/rodrigolucke/Documents/NetBeansProjects/BatalhaNavalLuckeDani/src";
            
           
